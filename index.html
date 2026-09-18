@@ -3,86 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-<!-- The Navigation Bar -->
-    <nav class="top-nav">
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <header class="hero-section">
-        <h1 class="my-name">Hi, I'm Debojyoti.</h1>
-        <p class="tagline">I build things for the web.</p>
-    </header>
 
-<!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="about-content">
-            <h2 class="section-title">About Me</h2>
-            <p class="about-text">
-                I'm a first-year Computer Science undergraduate at Scaler School of Technology in Bangalore. 
-                I'm passionate about software engineering, solving complex problems, and building tools that make an impact. 
-                Whether it's diving deep into discrete math, developing AI extensions during overnight hackathons, or training in my daily fitness routine, I thrive on discipline and continuous learning.
-            </p>
-            
-            <!-- Skill Pills -->
-            <div class="skills-container">
-                <span class="skill-pill">Java</span>
-                <span class="skill-pill">HTML & CSS</span>
-                <span class="skill-pill">JavaScript</span>
-                <span class="skill-pill">Linux CLI</span>
-                <span class="skill-pill">Git</span>
-            </div>
-        </div>
+    <h1 class="hero-title">DEBOJYOTI DHAR</h1>
+    <p class="hero-subtitle">Aspiring Software Engineer | Computer Science Undergraduate</p>
+
+    <div class="hero-buttons">
+        <a href="#" class="btn-primary">View Projects</a>
+        <a href="https://github.com/debojyotidhar-ai" target="_blank" class="btn-secondary">GitHub</a>
+    </div>
+
+    <section class="about-section">
+        <h2 class="section-title">01 // About Me</h2>
+        <p class=""about-text">
+            First-year Computer Science undergraduate at Scaler School of Technology (Class of '30). 
+            Passionate about building software systems, exploring low-level mechanics, and maintaining 
+            strict discipline through coding, cycling, and daily calisthenics.
+        </p>
     </section>
 
-<!-- Projects Section -->
-    <section id="projects" class="projects-section">
-        <h2 class="section-title">My Projects</h2>
+    <section class="skills-section">
+        <h2 class="section-title">02 // TECH STACK</h2>
+        <div class="skills-container">
+            <span class="skill-pill">Java</span>
+            <span class="skill-pill">HTML & CSS</span>
+            <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">Linux CLI</span>
+            <span class="skill-pill">Git & GitHub</span>
+        </div>
+
+    <section class="projects-section">
+        <h2 class="section-title">03 // PROJECTS</h2>
         
         <div class="project-grid">
-            <!-- Card 1: The Hackathon Project -->
             <div class="project-card">
-                <h3>Gradient Rush AI Extension</h3>
-                <p>An AI-assisted web form auto-fill browser extension and web dashboard built during an overnight hackathon.</p>
-                <a href="#" class="project-link">View Project &rarr;</a>
+                <h3 class="project-title">Gradient Rush Extension</h3>
+                <p class="project-desc">
+                    An automated form-filling Chrome extension and web dashboard built during a 13-hour hackathon utilizing AI APIs and modular frontend architecture.
+                </p>
+                <a href="https://github.com/debojyotidhar-ai" target="_blank" class="project-link">View Source →</a>
             </div>
 
-            <!-- Card 2: Restaurant Layout -->
             <div class="project-card">
-                <h3>CSS Menu Layout</h3>
-                <p>A fully responsive restaurant menu layout demonstrating advanced CSS Grid and Flexbox architecture.</p>
-                <a href="#" class="project-link">View Project &rarr;</a>
-            </div>
-
-            <!-- Card 3: Placeholder -->
-            <div class="project-card">
-                <h3>Coming Soon</h3>
-                <p>More exciting projects currently in development using JavaScript, React, and modern web technologies.</p>
-                <a href="#" class="project-link">View Project &rarr;</a>
+                <h3 class="project-title">Personal Portfolio</h3>
+                <p class="project-desc">
+                    A brutalist, dark-mode personal portfolio built completely from scratch using semantic HTML5 and modern CSS Grid/Flexbox layouts.
+                </p>
+                <a href="https://github.com/debojyotidhar-ai" target="_blank" class="project-link">View Source →</a>
             </div>
         </div>
     </section>
-
-<!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <h2 class="section-title">Get In Touch</h2>
-        
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
-    </section>
-
 </body>
 </html>
