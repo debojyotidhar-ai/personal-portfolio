@@ -20,6 +20,16 @@ body {
     min-height: 100vh;
 }
 
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure the canvas is behind other content */
+    pointer-events: none; /* Allow clicks to pass through the canvas */
+}
+
 .hero-subtitle {
     font-size: 1.5rem;
     color: #e0e0e0; /* A bright color for the subtitle */
@@ -186,7 +196,7 @@ body {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    padding: 50px 20px 80px 20px;
+    padding: 60px 20px 120px 20px;
     border-top: 1px solid rgba(204, 255, 0, 0.2);
 }
 
@@ -268,4 +278,65 @@ body {
 .nav-item.active {
     color: #ccff00;
     background-color: rgba(204, 255, 0, 0.1);
+}
+
+#ambient-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks to pass through */
+    z-index: 0; /* Ensure the glow is behind other content */
+    background: radial-gradient(
+    600px circle at var(glow-x, 50%) var(glow-y, 50%),
+    rgba(204, 255, 0, 0.2)
+    transparent 80%
+    );
+    transition: background 0.1s ease-out;
+}
+
+.navbar, .hero-section, .about-section, .skills-section, .projects-section, .footer-section {
+    position: relative;
+    z-index: 1; /* Ensure these sections are above the ambient glow */
+}
+
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px 12px;
+    }
+
+    .nav.links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .nav-item {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+        white-space: nowrap;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
 }
