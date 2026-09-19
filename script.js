@@ -1,3 +1,24 @@
+// Feature: Light/Dark Theme Switcher with localStorage Persistence
+const themeToggle = document.getElementById("theme-toggle");
+
+// 1. Check saved state in localStorage on initial page load
+const currentTheme = localStorage.getItem("theme");
+if (currentTheme === "light") {
+  document.body.classList.add("light-theme");
+  themeToggle.textContent = "☾";
+}
+
+// 2. Handle button clicks
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light-theme");
+
+  const isLight = document.body.classList.contains("light-theme");
+  themeToggle.textContent = isLight ? "☾" : "☀";
+
+  // 3. Save preference to localStorage
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+});
+
 // Feature 1: Mouse Spotlight Glow on Cards
 const projectCards = document.querySelectorAll(".project-card");
 
