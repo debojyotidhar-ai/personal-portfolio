@@ -1,3 +1,23 @@
+:root {
+    --bg-color: #0a0a0a;
+    --card-bg: #121212;
+    --text-color: #f0f0f0;
+    --text-muted: #888888;
+    --accent-color: #ccff00;
+    --border-color: rgba(204, 255, 0, 0.25);
+    --nav-bg: rgba(10, 10, 10, 0.9);
+}
+
+body.light-theme {
+    --bg-color: #f4f4f0;
+    --card-bg: #ffffff;
+    --text-color: #111111;
+    --text-muted: #555555;
+    --accent-color: #007a00;
+    --border-color: rgba(0, 0, 0, 0.15);
+    --nav-bg: rgba(244, 244, 240, 0.95);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -10,14 +30,32 @@ html {
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #0f0f0f; /* Dark background for the entire page */
-    color: #ccff00; /* Default text color */
+    background-color: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.6;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.theme-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--accent-color);
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    transition: all 0.2s ease;
+}
+
+.theme-btn:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
 }
 
 #bg-canvas {
@@ -26,13 +64,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Ensure the canvas is behind other content */
-    pointer-events: none; /* Allow clicks to pass through the canvas */
+    z-index: -1;
+    pointer-events: none;
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
-    color: #e0e0e0; /* A bright color for the subtitle */
+    color: #e0e0e0;
     margin-top: 20px;
     letter-spacing: 2px;
 }
@@ -286,8 +324,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Allow clicks to pass through */
-    z-index: 0; /* Ensure the glow is behind other content */
+    pointer-events: none;
+    z-index: 0;
     background: radial-gradient(
     600px circle at var(glow-x, 50%) var(glow-y, 50%),
     rgba(204, 255, 0, 0.2)
@@ -298,7 +336,7 @@ body {
 
 .navbar, .hero-section, .about-section, .skills-section, .projects-section, .footer-section {
     position: relative;
-    z-index: 1; /* Ensure these sections are above the ambient glow */
+    z-index: 1;
 }
 
 #bg-canvas {
@@ -309,6 +347,23 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: -1;
+}
+
+.theme-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--accent-color);
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    line-height: 1;
+    transition: all 0.2s ease;
+}
+
+.theme-btn:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
 }
 
 @media (max-width: 768px) {
@@ -339,4 +394,39 @@ body {
         grid-template-columns: 1fr;
         gap: 16px;
     }
+}
+
+body.light-theme .navbar {
+    background-color: rgba(244, 244, 240, 0.95);
+}
+
+body.light-theme .hero-subtitle,
+body.light-theme p,
+body.light-theme .nav-brand,
+body.light-theme .skill-pill,
+body.light-theme .project-desc {
+    color: #1a1a1a !important;
+}
+
+body.light-theme .section-title {
+    color: #007a00 !important;
+    border-left-color: #007a00 !important;
+}
+
+body.light-theme .skill-pill {
+    background-color: #ffffff;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .section-title,
+body.light-theme .project-title,
+body.light-theme .project-link,
+body.light-theme .footer-link {
+    color: #007a00 !important;
+    border-left-color: #007a00 !important;
+}
+
+body.light-theme .btn-secondary {
+    color: #1a1a1a !important;
+    border-color: rgba(0, 0, 0, 0.3) !important;
 }

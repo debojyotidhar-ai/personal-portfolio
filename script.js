@@ -1,4 +1,20 @@
-// Feature 1: Mouse Spotlight Glow on Cards
+const themeToggle = document.getElementById("theme-toggle");
+
+const currentTheme = localStorage.getItem("theme");
+if (currentTheme === "light") {
+  document.body.classList.add("light-theme");
+  themeToggle.textContent = "☾";
+}
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light-theme");
+
+  const isLight = document.body.classList.contains("light-theme");
+  themeToggle.textContent = isLight ? "☾" : "☀";
+
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+});
+
 const projectCards = document.querySelectorAll(".project-card");
 
 projectCards.forEach((card) => {
@@ -12,29 +28,24 @@ projectCards.forEach((card) => {
   });
 });
 
-// Feature 2: Bulletproof Cumulative Scrollspy Engine
 const sections = document.querySelectorAll("section[id], footer[id]");
 const navItems = document.querySelectorAll(".nav-item");
 
 function updateActiveNav() {
-  // Trigger line sits just below the 90px sticky navbar offset
   const triggerLine = window.scrollY + 110;
   let currentSectionId = "";
 
-  // Find the last section whose top edge has passed the trigger line
   sections.forEach((section) => {
     if (triggerLine >= section.offsetTop) {
       currentSectionId = section.getAttribute("id");
     }
   });
 
-  // Edge Case: Absolute bottom of document belongs to Contact
   const isAtBottom = window.innerHeight + Math.ceil(window.scrollY) >= document.documentElement.scrollHeight - 15;
   if (isAtBottom) {
     currentSectionId = "contact";
   }
 
-  // Update navbar classes
   if (currentSectionId) {
     navItems.forEach((link) => {
       link.classList.toggle(
@@ -45,12 +56,10 @@ function updateActiveNav() {
   }
 }
 
-// Event Listeners
 window.addEventListener("scroll", updateActiveNav, { passive: true });
 window.addEventListener("resize", updateActiveNav);
-updateActiveNav(); // Run immediately on page load
+updateActiveNav();
 
-// Feature 3: Minimal Ambient Cursor Spotlight
 const ambientGlow = document.getElementById("ambient-glow");
 
 window.addEventListener("pointermove", (e) => {
@@ -58,7 +67,6 @@ window.addEventListener("pointermove", (e) => {
   ambientGlow.style.setProperty("--glow-y", `${e.clientY}px`);
 });
 
-// Feature 3: Minimalist Ambient Cyber-Embers (Easy to Explain)
 const canvas = document.getElementById("bg-canvas");
 const ctx = canvas.getContext("2d");
 
@@ -69,7 +77,6 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
-// 35 lightweight rising ember particles
 const particleCount = 35;
 const particles = [];
 
@@ -90,7 +97,6 @@ function renderEmbers() {
     const p = particles[i];
     p.y -= p.speedY;
 
-    // Wrap around: when particle hits top, reset to bottom
     if (p.y < 0) {
       p.y = canvas.height;
       p.x = Math.random() * canvas.width;
